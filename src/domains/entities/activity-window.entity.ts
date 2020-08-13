@@ -23,8 +23,8 @@ export class ActivityWindowEntity {
 			.reduce(MoneyEntity.add, MoneyEntity.ZERO());
 
 		const withdrawalBalance = this.activities
-			.filter((acitvity) => acitvity.sourceAccountId === accountId)
-			.map((acivity) => acivity.money)
+			.filter((activity) => activity.sourceAccountId === accountId)
+			.map((activity) => activity.money)
 			.reduce(MoneyEntity.add, MoneyEntity.ZERO())
 
 		return MoneyEntity.add(depositBalance, withdrawalBalance.negate());
