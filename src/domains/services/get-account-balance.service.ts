@@ -7,7 +7,8 @@ export class GetAccountBalanceService implements GetAccountBalanceQuery {
 		private readonly _loadAccountPort: LoadAccountPort
 	) {}
 
-	getAccountBalance(accountId: AccountId) {
-		this._loadAccountPort.loadAccount(accountId).calculateBalance();
+	async getAccountBalance(accountId: AccountId) {
+		const account = await this._loadAccountPort.loadAccount(accountId);
+		account.calculateBalance();
 	}
 }
